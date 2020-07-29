@@ -31,7 +31,7 @@ $(call inherit-product, $(LOCAL_PATH)/device.mk)
 $(call inherit-product-if-exists, frameworks/base/data/fonts/fonts.mk)
 
 PRODUCT_BRAND := halium
-PRODUCT_DEVICE := ubport
+PRODUCT_DEVICE := halium_arm64
 PRODUCT_MANUFACTURER := halium
-PRODUCT_NAME := lineage_ubport
-PRODUCT_MODEL := Ubuntu Touch
+PRODUCT_NAME := lineage_halium_arm64
+PRODUCT_MODEL := Generic Device

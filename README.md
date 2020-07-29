@@ -1,3 +1,2 @@
-
-Device configuration for Halium ubuntu touch (ubport)
-==================================
+Device configuration for generic Halium 9 systemimage
+=====================================================

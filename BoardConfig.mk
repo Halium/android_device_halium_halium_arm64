@@ -16,7 +16,7 @@
 
 BOARD_VENDOR := halium
 
-DEVICE_PATH := device/halium/ubport
+DEVICE_PATH := device/halium/halium_arm64
 
 include build/make/target/board/generic_arm64_ab/BoardConfig.mk
 
