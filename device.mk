@@ -69,7 +69,8 @@ PRODUCT_PACKAGES += \
     android.frameworks.displayservice@1.0 \
     drmserver \
     mediadrmserver \
-    mediaextractor
+    mediaextractor \
+    miniafservice
 
 PRODUCT_PACKAGES += \
     sensorservice
