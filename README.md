@@ -1,2 +1,2 @@
-Device configuration for generic Halium 9 systemimage
+Device configuration for generic Halium 10 systemimage
 =====================================================

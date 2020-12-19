@@ -20,8 +20,34 @@ DEVICE_PATH := device/halium/halium_arm64
 
 include build/make/target/board/generic_arm64_ab/BoardConfig.mk
 
-# Ramdisk
-BOARD_ROOT_EXTRA_FOLDERS += efs
+TARGET_USES_64_BIT_BINDER := true
 
-# Soong namespaces
-PRODUCT_SOONG_NAMESPACES += $(DEVICE_PATH)
+# APEX
+TARGET_FLATTEN_APEX := true
+
+# Platform
+TARGET_BOARD_PLATFORM := halium
+
+# Kernel
+TARGET_NO_KERNEL := true
+
+# Audio
+USE_XML_AUDIO_POLICY_CONF := 1
+
+# Bootloader
+TARGET_NO_BOOTLOADER := true
+
+# Display
+TARGET_USES_HWC2 := true
+
+# Filesystem
+TARGET_USERIMAGES_USE_EXT4 := true
+
+# HIDL
+DEVICE_FRAMEWORK_MANIFEST_FILE := $(DEVICE_PATH)/framework_manifest.xml
+
+# Partitions
+TARGET_COPY_OUT_VENDOR := vendor
+BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
+BOARD_VENDORIMAGE_PARTITION_SIZE := 314572800
+BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
