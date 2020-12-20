@@ -40,7 +40,9 @@ PRODUCT_PACKAGES += \
 
 # Halium
 PRODUCT_PACKAGES += \
-    libhwc2_compat_layer
+    libcamera_compat_layer \
+    libhwc2_compat_layer \
+    libmedia_compat_layer
 
 # Soong
 PRODUCT_SOONG_NAMESPACES += \
