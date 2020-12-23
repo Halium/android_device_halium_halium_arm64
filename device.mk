@@ -38,12 +38,6 @@ PRODUCT_PACKAGES += \
     bootctl \
     vintf
 
-# Halium
-PRODUCT_PACKAGES += \
-    libcamera_compat_layer \
-    libhwc2_compat_layer \
-    libmedia_compat_layer
-
 # Soong
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH)
