@@ -17,6 +17,10 @@
 # Properties
 -include $(LOCAL_PATH)/system_prop.mk
 
+# World APN list
+PRODUCT_PACKAGES += \
+    apns-conf.xml
+
 # Enable dynamic partition size
 PRODUCT_USE_DYNAMIC_PARTITION_SIZE := true
 
