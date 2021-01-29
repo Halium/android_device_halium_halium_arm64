@@ -1,0 +1,3 @@
+# This is an empty configuration file, which is provided as a mount point
+# so that device trees can use it to bind-mount their device-specific init
+# overrides.
