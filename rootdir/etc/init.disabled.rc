@@ -22,3 +22,8 @@ service vendor.audio-hal-2-0 android.hardware.audio@2.0-service_HYBRIS_DISABLED
     disabled
     oneshot
     override
+
+service time_daemon time_daemon_HYBRIS_DISABLED
+    disabled
+    oneshot
+    override
