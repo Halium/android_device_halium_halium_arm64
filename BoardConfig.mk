@@ -23,5 +23,9 @@ include build/make/target/board/generic_arm64_ab/BoardConfig.mk
 # Ramdisk
 BOARD_ROOT_EXTRA_FOLDERS += efs
 
+# Offline charging
+BOARD_CHARGER_ENABLE_SUSPEND := true
+BOARD_CHARGER_DISABLE_INIT_BLANK := true
+
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += $(DEVICE_PATH)
