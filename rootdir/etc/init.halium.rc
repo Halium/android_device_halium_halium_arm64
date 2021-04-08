@@ -40,3 +40,11 @@ on post-fs-data
 on property:sys.boot_completed=1
     write /dev/wcnss_wlan 1
     write /sys/module/wlan/parameters/fwpath sta
+
+on charger
+    start charger
+
+service charger /sbin/charger
+    class charger
+    group system graphics wakelock
+    capabilities BLOCK_SUSPEND SYS_ADMIN SYS_BOOT
