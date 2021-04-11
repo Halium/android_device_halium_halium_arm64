@@ -16,9 +16,12 @@
 
 BOARD_VENDOR := halium
 
-DEVICE_PATH := device/halium/halium_arm64
+DEVICE_PATH := device/halium/halium_arm
 
-include build/make/target/board/generic_arm64_ab/BoardConfig.mk
+include build/make/target/board/generic_arm_ab/BoardConfig.mk
+
+# Binder
+TARGET_USES_64_BIT_BINDER := true
 
 # Ramdisk
 BOARD_ROOT_EXTRA_FOLDERS += efs
