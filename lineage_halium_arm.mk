@@ -15,7 +15,7 @@
 #
 
 # Inherit from those products. Most specific first.
-$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
+# $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_p.mk)
 
 # Inherit from phh vndk vendor.
@@ -31,7 +31,7 @@ $(call inherit-product, $(LOCAL_PATH)/device.mk)
 $(call inherit-product-if-exists, frameworks/base/data/fonts/fonts.mk)
 
 PRODUCT_BRAND := halium
-PRODUCT_DEVICE := halium_arm64
+PRODUCT_DEVICE := halium_arm
 PRODUCT_MANUFACTURER := halium
-PRODUCT_NAME := lineage_halium_arm64
+PRODUCT_NAME := lineage_halium_arm
 PRODUCT_MODEL := Generic Device

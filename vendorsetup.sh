@@ -1,1 +1,1 @@
-add_lunch_combo lineage_halium_arm64-userdebug
+add_lunch_combo lineage_halium_arm-userdebug
