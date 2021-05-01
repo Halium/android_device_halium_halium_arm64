@@ -37,6 +37,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     bootctl \
     vintf
+# Media
+PRODUCT_PACKAGES += \
+    libdroidmedia 
 
 # Soong
 PRODUCT_SOONG_NAMESPACES += \
