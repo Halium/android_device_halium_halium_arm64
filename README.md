@@ -17,7 +17,7 @@ Assuming that you have all the build dependencies and the `repo` tool, you
 should run the following commands:
 
     # Get all the needed repositories for a Halium-based build
-    repo init -u https://github.com/Halium/android -b halium-9.0 --depth=1
+    repo init -u https://github.com/Halium/android -b halium-10.0 --depth=1
 
 A copy of this very repository will be created in
 `device/halium/halium_arm64/`; if you are interested in trying out a
@@ -33,16 +33,20 @@ directory before proceeding:
     # Setup the build environment
     source build/envsetup.sh && breakfast halium_arm64
 
-    # Build the system image
-    make systemimage
+    # Build the raw system image
+    mka rawsystemimage
 
-    # After quite some time, the output will be in
-    # out/target/product/halium_arm64/system.img
+After some time (depending on the machine you build on), the output will be in
+`out/target/product/halium_arm64/android-rootfs.img`.
 
-Note: you need python 2.7 to build this; if the `python` program shipped by
-your distribution is python version 3, the build will fail. Consider building
-this project in a virtualenv:
+You can replace the android-rootfs.img via ssh:
 
-    virtualenv --python 2.7 ~/python27  # adjust the path to your prefs
-    source ~/python27/bin/activate
+    # Transfer android-rootfs.img to the device
+    scp out/target/product/halium_arm64/android-rootfs.img phablet@10.15.19.82:/tmp/android-rootfs.img
 
+    # Update android-rootfs.img
+    ssh phablet@10.15.19.82 "sudo mount -o rw,remount /"
+    ssh phablet@10.15.19.82 "sudo mv -v /tmp/android-rootfs.img /var/lib/lxc/android/android-rootfs.img"
+
+    # Reboot the system to use the new android-rootfs.img
+    ssh phablet@10.15.19.82 "sudo systemctl reboot"
