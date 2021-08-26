@@ -78,3 +78,7 @@ PRODUCT_PACKAGES += \
 # HFD
 PRODUCT_PACKAGES += \
     libhfd_api
+    
+# Ubuntu Touch additional properties for WIDI
+PRODUCT_PROPERTY_OVERRIDES += \
+    ubuntu.widi.supported=1
