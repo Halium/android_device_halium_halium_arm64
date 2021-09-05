@@ -27,6 +27,10 @@ PRODUCT_PACKAGES += \
     init.halium.rc \
     vndk-detect \
     on-post-data.sh
+    
+# Custom Charge Animation
+PRODUCT_PACKAGES += \
+    charger_res_images
 
 # Keymaster
 PRODUCT_PACKAGES += \
