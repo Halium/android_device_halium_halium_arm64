@@ -38,6 +38,9 @@ PRODUCT_PACKAGES += \
     bootctl \
     vintf
 
+# Force flattened APEX
+PRODUCT_PRODUCT_PROPERTIES := ro.apex.updatable=false
+
 # Soong
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH)
