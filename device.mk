@@ -17,6 +17,11 @@
 # Properties
 -include $(LOCAL_PATH)/system_prop.mk
 
+# Charger
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/charger/images/battery_fail.png:$(TARGET_COPY_OUT_PRODUCT)/etc/res/images/charger/battery_fail.png \
+    $(LOCAL_PATH)/charger/images/battery_scale.png:$(TARGET_COPY_OUT_PRODUCT)/etc/res/images/charger/battery_scale.png
+
 # Enable dynamic partition size
 PRODUCT_USE_DYNAMIC_PARTITION_SIZE := true
 
