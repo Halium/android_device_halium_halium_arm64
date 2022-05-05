@@ -51,6 +51,10 @@ mount -t tmpfs -o rw,nodev,relatime,mode=755,gid=0 none /data/phh || true
 mkdir /data/phh/empty_dir
 fixSPL
 
-if grep -qF android.hardware.boot /vendor/manifest.xml || grep -qF android.hardware.boot /vendor/etc/vintf/manifest.xml ;then
+if \
+    grep -qF android.hardware.boot /vendor/manifest.xml || \
+    grep -qF android.hardware.boot /vendor/etc/vintf/manifest.xml || \
+    [ -e /vendor/etc/vintf/manifest/android.hardware.boot*.xml ]
+then
     bootctl mark-boot-successful
 fi
