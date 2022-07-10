@@ -14,6 +14,13 @@
 # limitations under the License.
 #
 
+# Charger
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/charger/images/battery_fail.png:$(TARGET_COPY_OUT_ROOT)/res/images/charger/battery_fail.png \
+    $(LOCAL_PATH)/charger/images/battery_scale.png:$(TARGET_COPY_OUT_ROOT)/res/images/charger/battery_scale.png \
+    $(LOCAL_PATH)/charger/images/main_font.png:$(TARGET_COPY_OUT_ROOT)/res/images/charger/main_font.png \
+    $(LOCAL_PATH)/charger/values/animation.txt:$(TARGET_COPY_OUT_ROOT)/res/values/charger/animation.txt
+
 # Enable dynamic partition size
 PRODUCT_USE_DYNAMIC_PARTITION_SIZE := true
 
@@ -48,3 +55,7 @@ PRODUCT_PRODUCT_PROPERTIES := ro.apex.updatable=false
 # Soong
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH)
+
+# healthd for chargermode
+PRODUCT_PACKAGES += \
+    healthd
