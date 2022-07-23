@@ -33,7 +33,7 @@ PRODUCT_PACKAGES += \
 
 # bind mount target for property overrides
 PRODUCT_PACKAGES += \
-    prop.halium
+    halium.prop
 
 # Keymaster
 PRODUCT_PACKAGES += \
