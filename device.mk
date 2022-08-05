@@ -59,3 +59,7 @@ PRODUCT_SOONG_NAMESPACES += \
 # healthd for chargermode
 PRODUCT_PACKAGES += \
     healthd
+
+# fastbootd for recovery
+PRODUCT_PACKAGES += \
+    fastbootd
