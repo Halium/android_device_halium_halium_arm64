@@ -63,3 +63,7 @@ PRODUCT_PACKAGES += \
 # fastbootd for recovery
 PRODUCT_PACKAGES += \
     fastbootd
+
+# Camera
+PRODUCT_PACKAGES += \
+    vendor.lineage.camera.motor@1.0
