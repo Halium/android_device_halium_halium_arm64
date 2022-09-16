@@ -48,3 +48,7 @@ PRODUCT_PACKAGES += \
 # Soong
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH)
+
+# Camera
+PRODUCT_PACKAGES += \
+    vendor.lineage.camera.motor@1.0
