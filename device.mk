@@ -85,3 +85,7 @@ PRODUCT_PACKAGES += \
 # HFD
 PRODUCT_PACKAGES += \
     libhfd_api
+    
+# Camera
+PRODUCT_PACKAGES += \
+    vendor.lineage.camera.motor@1.0
