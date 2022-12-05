@@ -32,3 +32,8 @@ service vendor.usb-hal-1-1 android.hardware.usb@1.1-service_HYBRIS_DISABLED
     disabled
     oneshot
     override
+
+# Disable console as it conflicts with the rootfs console
+service console /system/bin/sh_HYBRIS_DISABLED
+    disabled
+    override
