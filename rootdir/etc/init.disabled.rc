@@ -27,3 +27,8 @@ service time_daemon time_daemon_HYBRIS_DISABLED
     disabled
     oneshot
     override
+
+# Disable console as it conflicts with the rootfs console
+service console /system/bin/sh_HYBRIS_DISABLED
+    disabled
+    override
