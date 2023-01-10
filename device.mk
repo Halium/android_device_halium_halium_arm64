@@ -24,9 +24,13 @@ PRODUCT_COPY_FILES += \
 # Enable dynamic partition size
 PRODUCT_USE_DYNAMIC_PARTITION_SIZE := true
 
+# VNDK
+PRODUCT_EXTRA_VNDK_VERSIONS := 31
+
 # init scripts
 PRODUCT_PACKAGES += \
     init.disabled.rc \
+    init.gsi.rc \
     init.halium.rc \
     vndk-detect \
     on-post-data.sh

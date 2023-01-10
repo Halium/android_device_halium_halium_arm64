@@ -18,7 +18,7 @@ BOARD_VENDOR := halium
 
 DEVICE_PATH := device/halium/halium_arm64
 
-include build/make/target/board/generic_arm64_ab/BoardConfig.mk
+include build/make/target/board/generic_arm64/BoardConfig.mk
 
 TARGET_USES_64_BIT_BINDER := true
 
@@ -58,5 +58,7 @@ BOARD_VENDORIMAGE_PARTITION_SIZE := 314572800
 BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
 
 # Recovery
-BOARD_USES_RECOVERY_AS_BOOT := true
+BOARD_MOVE_RECOVERY_RESOURCES_TO_VENDOR_BOOT := true
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
+
+BUILD_BROKEN_MISSING_REQUIRED_MODULES := true
