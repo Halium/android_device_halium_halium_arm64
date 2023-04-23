@@ -24,12 +24,20 @@ PRODUCT_COPY_FILES += \
 # Enable dynamic partition size
 PRODUCT_USE_DYNAMIC_PARTITION_SIZE := true
 
+# Ubuntu Touch additional properties
+PRODUCT_PROPERTY_OVERRIDES += \
+    ubuntu.widi.supported=1
+
 # init scripts
 PRODUCT_PACKAGES += \
     init.disabled.rc \
     init.halium.rc \
     vndk-detect \
     on-post-data.sh
+    
+# Custom Charge Animation
+PRODUCT_PACKAGES += \
+    charger_res_images
 
 # Keymaster
 PRODUCT_PACKAGES += \
