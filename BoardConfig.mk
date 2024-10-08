@@ -25,7 +25,6 @@ BOARD_ROOT_EXTRA_FOLDERS += efs
 
 # Offline charging
 BOARD_CHARGER_ENABLE_SUSPEND := true
-BOARD_CHARGER_DISABLE_INIT_BLANK := true
 BOARD_HEALTHD_CUSTOM_CHARGER_RES := $(DEVICE_PATH)/charger/images
 
 # Soong namespaces
