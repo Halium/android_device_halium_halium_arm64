@@ -32,6 +32,7 @@ PRODUCT_PACKAGES += \
     init.disabled.rc \
     init.gsi.rc \
     init.halium.rc \
+    logd.halium.rc \
     vndk-detect \
     on-post-data.sh
 
