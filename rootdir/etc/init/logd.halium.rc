@@ -8,7 +8,5 @@ service logd /system/bin/logd
 #    file /dev/kmsg w
     user logd
     group logd system package_info readproc
-    capabilities SYSLOG AUDIT_CONTROL
-    priority 10
-    task_profiles ServiceCapacityLow
-    onrestart setprop logd.ready false
+    capabilities SYSLOG AUDIT_CONTROL SETGID
+    writepid /dev/cpuset/system-background/tasks
