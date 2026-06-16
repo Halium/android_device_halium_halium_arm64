@@ -33,6 +33,7 @@ LOCAL_MODULE       := vndk-detect
 LOCAL_MODULE_TAGS  := optional
 LOCAL_MODULE_CLASS := EXECUTABLES
 LOCAL_SRC_FILES    := bin/vndk-detect
+LOCAL_CHECK_ELF_FILES := false
 include $(BUILD_PREBUILT)
 
 include $(CLEAR_VARS)
@@ -40,4 +41,5 @@ LOCAL_MODULE       := on-post-data.sh
 LOCAL_MODULE_TAGS  := optional
 LOCAL_MODULE_CLASS := EXECUTABLES
 LOCAL_SRC_FILES    := bin/on-post-data.sh
+LOCAL_CHECK_ELF_FILES := false
 include $(BUILD_PREBUILT)
