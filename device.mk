@@ -25,7 +25,13 @@ PRODUCT_COPY_FILES += \
 PRODUCT_USE_DYNAMIC_PARTITION_SIZE := true
 
 # VNDK
-PRODUCT_EXTRA_VNDK_VERSIONS := 34
+# An older vendor needs its own VNDK snapshot shipped beside the GSI's; they
+# install to /system/system_ext/apex/com.android.vndk.v<N>. 32 is for the
+# Android 12.1 vendors the Pixel 3a runs.
+#
+# No 30 here even though the 14 tree carried it: this tree only syncs
+# prebuilts/vndk v31-v34, so Android 11 vendors cannot be served from a 16 GSI.
+PRODUCT_EXTRA_VNDK_VERSIONS := 32 34
 
 # init scripts
 PRODUCT_PACKAGES += \
