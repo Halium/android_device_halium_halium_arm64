@@ -48,3 +48,41 @@ service charger /system/bin/charger
     class charger
     group system graphics wakelock
     capabilities BLOCK_SUSPEND SYS_ADMIN SYS_BOOT
+
+# Make vndservicemanager survive a container with no selinuxfs.
+#
+# A stock vendor's /vendor/bin/vndservicemanager is AOSP's, and its Access
+# constructor does CHECK(selinux_status_open(true) >= 0). Halium's init never
+# mounts selinuxfs, so it aborts on SIGABRT and init restarts it forever.
+# Nothing then becomes the context manager for /dev/vndbinder and every vendor
+# HAL that opens it blocks, the display composer included.
+#
+# libselinux_stubs.so no-ops the SELinux entry points. Preloading it is the
+# right lever rather than replacing libselinux outright: the stub does not
+# export selinux_vendor_log_callback, which vndservicemanager references, and
+# LD_PRELOAD overlays only what it defines so that symbol still resolves from
+# the real libselinux. Replacing the library wholesale fails - /init itself
+# needs selinux_android_load_policy, which the stub also lacks.
+#
+# The vendor namespace can load it because of Halium's linkerconfig patch,
+# which adds libselinux_stubs.so to the link from vendor to system for exactly
+# this purpose.
+#
+# This redefinition wins over the vendor's own vndservicemanager.rc: init parses
+# /system/etc/init before /vendor/etc/init, and rejects a later duplicate that
+# does not say "override" - which the vendor's does not.
+#
+# Using the vendor's binary rather than shipping one avoids having to match the
+# vendor's VNDK. A vndservicemanager built in this tree targets the GSI's VNDK
+# and dies against an older vendor with
+#   cannot locate symbol "_ZTVN7android2os14ConnectionInfoE"
+service vndservicemanager /vendor/bin/vndservicemanager /dev/vndbinder
+    class core
+    user system
+    group system readproc
+    setenv LD_PRELOAD /system/lib64/libselinux_stubs.so
+    writepid /dev/cpuset/system-background/tasks
+    onrestart class_restart main
+    onrestart class_restart hal
+    onrestart class_restart early_hal
+    shutdown critical

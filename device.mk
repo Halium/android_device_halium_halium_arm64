@@ -24,8 +24,23 @@ PRODUCT_COPY_FILES += \
 # Enable dynamic partition size
 PRODUCT_USE_DYNAMIC_PARTITION_SIZE := true
 
+# Ship plain APEXes, not compressed ones.
+#
+# Halium's mount-apexes.py mounts an APEX by loop-mounting the payload image
+# inside it; a .capex has that image compressed, and the script rejects it with
+# "Don't know how to handle ...". conscrypt, media and media.swcodec all arrive
+# compressed by default on 16, so they silently never get mounted. 14 shipped
+# everything uncompressed, which is why this never came up before.
+PRODUCT_COMPRESSED_APEX := false
+
 # VNDK
-PRODUCT_EXTRA_VNDK_VERSIONS := 34
+# An older vendor needs its own VNDK snapshot shipped beside the GSI's; they
+# install to /system/system_ext/apex/com.android.vndk.v<N>. 32 is for the
+# Android 12.1 vendors the Pixel 3a runs.
+#
+# No 30 here even though the 14 tree carried it: this tree only syncs
+# prebuilts/vndk v31-v34, so Android 11 vendors cannot be served from a 16 GSI.
+PRODUCT_EXTRA_VNDK_VERSIONS := 32 34
 
 # init scripts
 PRODUCT_PACKAGES += \
