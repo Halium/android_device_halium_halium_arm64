@@ -27,6 +27,10 @@ PRODUCT_USE_DYNAMIC_PARTITION_SIZE := true
 # VNDK
 PRODUCT_EXTRA_VNDK_VERSIONS := 34
 
+# APEXes are never updated from the store, so compression only costs a
+# decompression to /data at boot. Uncompressed ones also mount host-side.
+PRODUCT_COMPRESSED_APEX := false
+
 # init scripts
 PRODUCT_PACKAGES += \
     init.disabled.rc \
