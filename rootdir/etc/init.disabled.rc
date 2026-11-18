@@ -32,3 +32,34 @@ service vendor.usb-hal-1-2 android.hardware.usb@1.2-service_HYBRIS_DISABLED
 service console /system/bin/sh_HYBRIS_DISABLED
     disabled
     override
+
+# Disable android framework side daemons lacking consumers in Halium
+service statsd /apex/com.android.os.statsd/bin/statsd_HYBRIS_DISABLED
+    disabled
+    oneshot
+    override
+
+service incidentd /system/bin/incidentd_HYBRIS_DISABLED
+    disabled
+    oneshot
+    override
+
+service storaged /system/bin/storaged_HYBRIS_DISABLED
+    disabled
+    oneshot
+    override
+
+service idmap2d /system/bin/idmap2d_HYBRIS_DISABLED
+    disabled
+    oneshot
+    override
+
+service installd /system/bin/installd_HYBRIS_DISABLED
+    disabled
+    oneshot
+    override
+
+service credstore /system/bin/credstore_HYBRIS_DISABLED
+    disabled
+    oneshot
+    override
